@@ -82,10 +82,10 @@ export default function Header() {
             </Link>
 
             <Link
-              href="/#faqs"
+              href="/#"
               className="text-[16px] font-medium text-gray-900 hover:text-black transition-colors"
             >
-              FAQs
+              Case Studies
             </Link>
           </div>
 
@@ -174,7 +174,7 @@ export default function Header() {
               </Link>
 
               <Link
-                href="/#faqs"
+                href="/#"
                 onClick={() => setOpen(false)}
                 className="
                   px-2
@@ -184,7 +184,7 @@ export default function Header() {
                   text-gray-900
                 "
               >
-                FAQs
+                Case Studies
               </Link>
 
               <div className="pt-4 pb-2">
