@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Onboarding | Forgent",
-  description:
-    "Start your AI automation project with forgent. Tell us about your business and we'll build the right solution for you.",
+  title: "Get Started | Forgent",
 };
 
 export default function OnboardingLayout({

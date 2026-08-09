@@ -40,8 +40,6 @@ export interface FormData {
   budget: string;
   timeline: string;
   referralSource: string;
-  bookingDate: string;
-  bookingTime: string;
 }
 
 export interface FormErrors {
@@ -53,4 +51,4 @@ export interface FormErrors {
   timeline?: string;
 }
 
-export type Step = 1 | 2 | 3 | 4;
+export type Step = 1 | 2 | 3;

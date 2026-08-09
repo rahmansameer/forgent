@@ -22,7 +22,6 @@ import Select from "./components/Select";
 import Textarea from "./components/Textarea";
 import Button from "../components/ui/Button";
 import SectionDivider from "./components/SectionDivider";
-import BookingSection from "./components/BookingSection";
 import SuccessState from "./components/SuccessState";
 
 const INITIAL_FORM_DATA: FormData = {
@@ -37,8 +36,6 @@ const INITIAL_FORM_DATA: FormData = {
   budget: "",
   timeline: "",
   referralSource: "",
-  bookingDate: "",
-  bookingTime: "",
 };
 
 function OnboardingForm() {
@@ -102,8 +99,8 @@ function OnboardingForm() {
     try {
       const form = new FormData();
       form.append("access_key", WEB3FORMS_ACCESS_KEY);
-      form.append("subject", "New Onboarding Submission");
-      form.append("from_name", "Onboarding Form");
+      form.append("subject", "New Project Inquiry");
+      form.append("from_name", "Get Started Form");
       form.append("Full Name", formData.fullName);
       form.append("Email", formData.email);
       form.append("Company Name", formData.companyName);
@@ -115,8 +112,6 @@ function OnboardingForm() {
       form.append("Budget", formData.budget);
       form.append("Timeline", formData.timeline);
       form.append("Referral Source", formData.referralSource);
-      form.append("Booking Date", formData.bookingDate);
-      form.append("Booking Time", formData.bookingTime);
 
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -342,35 +337,7 @@ function OnboardingForm() {
               <Button variant="secondary" onClick={handleBack}>
                 Back
               </Button>
-              <Button onClick={handleNext}>Continue</Button>
-            </div>
-          </div>
-        )}
-
-        {/* Step 4 */}
-        {step === 4 && (
-          <div>
-            <StepHeader title="Book your strategy call" />
-
-            <BookingSection
-              selectedDate={formData.bookingDate}
-              selectedTime={formData.bookingTime}
-              onDateChange={(date) => updateField("bookingDate", date)}
-              onTimeChange={(time) => updateField("bookingTime", time)}
-            />
-
-            <SectionDivider />
-
-            <div className="flex justify-between">
-              <Button variant="secondary" onClick={handleBack}>
-                Back
-              </Button>
-              <Button
-                onClick={handleSubmit}
-                disabled={
-                  submitting || !formData.bookingDate || !formData.bookingTime
-                }
-              >
+              <Button onClick={handleSubmit}>
                 {submitting ? "Confirming..." : "Confirm"}
               </Button>
             </div>

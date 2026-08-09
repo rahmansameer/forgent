@@ -40,14 +40,16 @@ export default function HeroSection() {
 
   const currentPlatform = aiPlatforms[platformIndex];
 
-  function handleStartProject() {
+  function handleStartProject(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
     const trimmed = email.trim();
     if (!trimmed) return;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(trimmed)) return;
 
-    router.push(`/onboarding?email=${encodeURIComponent(trimmed)}`);
+    router.push(`/get-started?email=${encodeURIComponent(trimmed)}`);
   }
 
   useEffect(() => {
@@ -127,26 +129,23 @@ export default function HeroSection() {
 
             {/* CTA */}
             <div className="max-w-[600px] mx-auto mt-10">
-              <div className="flex flex-col md:flex-row items-center gap-3 md:gap-0 bg-white border border-gray-300 rounded-xl p-1">
+              <form
+                onSubmit={handleStartProject}
+                className="flex flex-col md:flex-row items-center gap-3 md:gap-0 bg-white border border-gray-300 rounded-xl p-1"
+              >
                 <input
                   type="email"
                   placeholder="Enter your email address"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") handleStartProject();
-                  }}
                   className="w-full h-[50px] px-5 bg-transparent outline-none text-[15px] text-black placeholder:text-black/35"
                 />
 
-                <Button
-                  onClick={handleStartProject}
-                  className="w-full md:w-auto shrink-0"
-                >
+                <Button type="submit" className="w-full md:w-auto shrink-0">
                   Start Your Project
                 </Button>
-              </div>
+              </form>
 
               <p className="mt-5 text-[13px] text-black/60">
                 Need a custom AI system for your business?{" "}

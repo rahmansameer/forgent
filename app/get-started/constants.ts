@@ -76,4 +76,4 @@ export const REFERRAL_SOURCES: ReferralSource[] = [
   { value: "other", label: "Other" },
 ];
 
-export const TOTAL_STEPS = 4;
+export const TOTAL_STEPS = 3;
