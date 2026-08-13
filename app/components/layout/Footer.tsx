@@ -8,7 +8,7 @@ import { useState } from "react";
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -17,29 +17,12 @@ export default function Footer() {
     setLoading(true);
     setStatus("idle");
 
-    try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+    // Simulated subscription — no backend call.
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
-      const data = await res.json();
-
-      if (res.ok && data.success) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setStatus("error");
-      }
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    } finally {
-      setLoading(false);
-    }
+    setStatus("success");
+    setEmail("");
+    setLoading(false);
   }
 
   return (
@@ -70,9 +53,7 @@ export default function Footer() {
                     ? "Subscribing..."
                     : status === "success"
                       ? "Subscribed"
-                      : status === "error"
-                        ? "Failed"
-                        : "Subscribe"}
+                      : "Subscribe"}
                 </Button>
               </form>
             </div>
