@@ -85,7 +85,7 @@ export default function Header() {
               href="/#"
               className="text-[16px] font-medium text-gray-900 hover:text-black transition-colors"
             >
-              Case Studies
+              Contact
             </Link>
           </div>
 
@@ -184,7 +184,7 @@ export default function Header() {
                   text-gray-900
                 "
               >
-                Case Studies
+                Contact
               </Link>
 
               <div className="pt-4 pb-2">
