@@ -38,7 +38,7 @@ const INITIAL_FORM_DATA: FormData = {
   referralSource: "",
 };
 
-function OnboardingForm() {
+function ContactForm() {
   const searchParams = useSearchParams();
   const emailFromUrl = searchParams.get("email") || "";
 
@@ -100,7 +100,7 @@ function OnboardingForm() {
       const form = new FormData();
       form.append("access_key", WEB3FORMS_ACCESS_KEY);
       form.append("subject", "New Project Inquiry");
-      form.append("from_name", "Get Started Form");
+      form.append("from_name", "Contact Form");
       form.append("Full Name", formData.fullName);
       form.append("Email", formData.email);
       form.append("Company Name", formData.companyName);
@@ -348,10 +348,10 @@ function OnboardingForm() {
   );
 }
 
-export default function OnboardingPage() {
+export default function ContactPage() {
   return (
     <Suspense>
-      <OnboardingForm />
+      <ContactForm />
     </Suspense>
   );
 }

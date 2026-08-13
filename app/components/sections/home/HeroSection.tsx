@@ -49,7 +49,7 @@ export default function HeroSection() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(trimmed)) return;
 
-    router.push(`/get-started?email=${encodeURIComponent(trimmed)}`);
+    router.push(`/contact?email=${encodeURIComponent(trimmed)}`);
   }
 
   useEffect(() => {

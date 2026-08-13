@@ -26,7 +26,19 @@ const faqs = [
   },
   {
     q: "How do we get started?",
-    a: "Book a call or contact us with your requirements. We'll review your needs and recommend the best approach.",
+    a: (
+      <>
+        <a href="/book-a-call" target="_blank" className="underline">
+          Book a call
+        </a>{" "}
+        or{" "}
+        <a href="/contact" className="underline">
+          contact us
+        </a>{" "}
+        with your requirements. We'll review your needs and recommend the best
+        approach.
+      </>
+    ),
   },
 ];
 
@@ -43,7 +55,7 @@ export default function FAQSection() {
           </h2>
           <p className="mt-4 text-[16px] text-gray-600 leading-[1.7]">
             Can't find what you're looking for?{" "}
-            <a className="underline" target="_blank" href="/book-a-call">
+            <a className="underline" href="/contact">
               Talk to us
             </a>
           </p>

@@ -82,7 +82,7 @@ export default function Header() {
             </Link>
 
             <Link
-              href="/#"
+              href="/contact"
               className="text-[16px] font-medium text-gray-900 hover:text-black transition-colors"
             >
               Contact
@@ -174,7 +174,7 @@ export default function Header() {
               </Link>
 
               <Link
-                href="/#"
+                href="/contact"
                 onClick={() => setOpen(false)}
                 className="
                   px-2
