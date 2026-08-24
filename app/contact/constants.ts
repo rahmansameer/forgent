@@ -7,7 +7,7 @@ import type {
   ServiceOption,
 } from "./types";
 
-export const WEB3FORMS_ACCESS_KEY = "25da10c7-5f91-4655-bd6a-147275387a33";
+export const WEB3FORMS_ACCESS_KEY = "d28605ac-6c74-4f08-98ce-2cc786b69d84";
 
 export const COMPANY_SIZES: CompanySize[] = [
   { value: "", label: "Select company size" },
