@@ -8,24 +8,9 @@ export const metadata: Metadata = {
   description:
     "Forgent help businesses automate sales, customer support, reporting, and operations with AI systems.",
 
-  openGraph: {
-    url: "https://forgentsystems.com",
-    siteName: "Forgent",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-      },
-    ],
-    type: "website",
-  },
-
   icons: {
     icon: "/favicon.ico",
   },
-
-  metadataBase: new URL("https://forgentsystems.com"),
 };
 
 export default function RootLayout({
