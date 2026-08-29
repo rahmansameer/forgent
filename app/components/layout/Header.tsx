@@ -52,7 +52,7 @@ export default function Header() {
                 alt="Forgent"
                 width={160}
                 height={40}
-                className="h-10 w-auto"
+                className="h-8 w-auto"
                 priority
               />
             </Link>
