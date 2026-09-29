@@ -35,8 +35,8 @@ const faqs = [
         <a href="/contact" className="underline">
           contact us
         </a>{" "}
-        with your requirements. We'll review your needs and recommend the best
-        approach.
+        with your requirements. We&apos;ll review your needs and recommend the
+        best approach.
       </>
     ),
   },
@@ -46,15 +46,15 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faqs" className="py-20 md:py-25 bg-[#f1f2f3]">
+    <section id="faqs" className="py-16 md:py-20 lg:py-24 bg-[#f1f2f3]">
       <Container>
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-[28px] sm:text-[36px] font-semibold leading-[1.1] text-gray-900">
+          <h2 className="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[36px] font-semibold leading-[1.1] text-gray-900">
             Frequently asked questions
           </h2>
-          <p className="mt-4 text-[16px] text-gray-600 leading-[1.7]">
-            Can't find what you're looking for?{" "}
+          <p className="mt-4 text-[14px] sm:text-[15px] lg:text-[16px] text-gray-600 leading-[1.7]">
+            Can&apos;t find what you&apos;re looking for?{" "}
             <a className="underline" href="/contact">
               Talk to us
             </a>
@@ -74,7 +74,9 @@ export default function FAQSection() {
                   onClick={() => setOpenIndex(open ? null : i)}
                   className="w-full flex justify-between items-center text-left"
                 >
-                  <p className="font-medium text-md text-gray-900">{faq.q}</p>
+                  <p className="font-medium text-[15px] sm:text-base text-gray-900">
+                    {faq.q}
+                  </p>
                   <i
                     className={`fa-solid fa-chevron-up text-gray-400 transition-transform ${
                       open ? "" : "-rotate-180"

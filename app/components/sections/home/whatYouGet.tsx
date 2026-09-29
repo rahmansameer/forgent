@@ -1,6 +1,5 @@
 import Container from "../../ui/Container";
 import {
-  ArrowRight,
   Briefcase,
   Workflow,
   Settings,
@@ -63,7 +62,7 @@ function FeatureCard({
         border
         border-gray-200
         bg-[#f7f8f9]
-        p-6
+        p-5 sm:p-6
         transition-colors
         duration-300
         ${large ? "min-h-[230px] lg:col-span-3" : "min-h-[230px] lg:col-span-2"}
@@ -71,16 +70,19 @@ function FeatureCard({
     >
       {/* Icon */}
       <div className="mb-6">
-        <Icon className="h-[24px] w-[24px] text-primary" strokeWidth={2.1} />
+        <Icon
+          className="h-5 w-5 sm:h-6 sm:w-6 text-primary"
+          strokeWidth={2.1}
+        />
       </div>
 
       {/* Content */}
       <div>
-        <h3 className="text-[22px] leading-[26px] font-medium tracking-[-0.03em] text-black">
+        <h3 className="text-[20px] sm:text-[22px] leading-[24px] sm:leading-[26px] font-medium tracking-[-0.03em] text-black">
           {title}
         </h3>
 
-        <p className="mt-3 max-w-[470px] text-[15px] leading-[26px] font-normal text-[#6b7280]">
+        <p className="mt-3 max-w-[470px] text-[14px] sm:text-[15px] leading-[23px] sm:leading-[26px] font-normal text-[#6b7280]">
           {description}
         </p>
       </div>
@@ -90,22 +92,22 @@ function FeatureCard({
 
 export default function WhatYouGet() {
   return (
-    <section className="bg-[#f1f2f3] py-6 md:py-8">
-      <div className="mx-5 rounded-3xl border border-gray-200 bg-white py-20 md:py-28">
+    <section className="bg-[#f1f2f3] py-4 md:py-8">
+      <div className="mx-4 sm:mx-5 rounded-3xl border border-gray-200 bg-white py-14 sm:py-16 lg:py-28">
         <Container>
           {/* Header */}
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-[30px] md:text-[38px] leading-[1.1] font-semibold text-black">
+            <h2 className="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[38px] leading-[1.1] font-semibold text-black">
               What every project includes
             </h2>
 
-            <p className="mt-4 text-[16px] leading-[1.7] text-black/60">
+            <p className="mt-4 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.7] text-black/60">
               Everything included to keep your project moving forward.
             </p>
           </div>
 
           {/* Grid */}
-          <div className="mt-14 grid grid-cols-1 gap-4 lg:grid-cols-6">
+          <div className="mt-10 md:mt-14 grid grid-cols-1 gap-4 lg:grid-cols-6">
             {features.map((feature) => (
               <FeatureCard
                 key={feature.title}

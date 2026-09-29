@@ -7,16 +7,14 @@ import { usePathname } from "next/navigation";
 import Button from "@/app/components/ui/Button";
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
   const pathname = usePathname();
 
-  const isHomePage = pathname === "/";
+  return <HeaderContent key={pathname} isHomePage={pathname === "/"} />;
+}
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+function HeaderContent({ isHomePage }: { isHomePage: boolean }) {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,7 +44,7 @@ export default function Header() {
         <div className="h-[70px] flex items-center">
           {/* Logo */}
           <div className="flex-1">
-            <Link href="/" className="w-fit">
+            <Link href="/" className="w-fit" onClick={() => setOpen(false)}>
               <Image
                 src="/nav-logo.png"
                 alt="Forgent"
@@ -192,6 +190,7 @@ export default function Header() {
                   href="/book-a-call"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
                 >
                   <Button className="w-full">Book a Call</Button>
                 </Link>

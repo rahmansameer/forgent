@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import Button from "@/app/components/ui/Button";
 
@@ -10,15 +10,41 @@ type CookiePrefs = {
   marketing: boolean;
 };
 
-export default function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+const CONSENT_STORAGE_KEY = "forgent-cookie-consent";
+const CONSENT_CHANGE_EVENT = "forgent-cookie-consent-change";
 
-  useEffect(() => {
-    const saved = localStorage.getItem("forgent-cookie-consent");
-    if (!saved) {
-      setVisible(true);
-    }
-  }, []);
+function subscribeToConsentChanges(onChange: () => void) {
+  window.addEventListener(CONSENT_CHANGE_EVENT, onChange);
+  window.addEventListener("storage", onChange);
+
+  return () => {
+    window.removeEventListener(CONSENT_CHANGE_EVENT, onChange);
+    window.removeEventListener("storage", onChange);
+  };
+}
+
+function getConsentVisibility() {
+  return (
+    typeof window !== "undefined" &&
+    localStorage.getItem(CONSENT_STORAGE_KEY) === null
+  );
+}
+
+function getServerConsentVisibility() {
+  return false;
+}
+
+function saveConsent(preferences: CookiePrefs) {
+  localStorage.setItem(CONSENT_STORAGE_KEY, JSON.stringify(preferences));
+  window.dispatchEvent(new Event(CONSENT_CHANGE_EVENT));
+}
+
+export default function CookieConsent() {
+  const visible = useSyncExternalStore(
+    subscribeToConsentChanges,
+    getConsentVisibility,
+    getServerConsentVisibility,
+  );
 
   function acceptAll() {
     const all: CookiePrefs = {
@@ -27,8 +53,7 @@ export default function CookieConsent() {
       marketing: true,
     };
 
-    localStorage.setItem("forgent-cookie-consent", JSON.stringify(all));
-    setVisible(false);
+    saveConsent(all);
   }
 
   function rejectAll() {
@@ -38,11 +63,7 @@ export default function CookieConsent() {
       marketing: false,
     };
 
-    localStorage.setItem(
-      "forgent-cookie-consent",
-      JSON.stringify(necessaryOnly),
-    );
-    setVisible(false);
+    saveConsent(necessaryOnly);
   }
 
   if (!visible) return null;

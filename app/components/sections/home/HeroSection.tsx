@@ -94,16 +94,16 @@ export default function HeroSection() {
         />
 
         {/* Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-6 py-28">
-          <div className="w-full max-w-[980px] text-center -mt-20">
+        <div className="relative z-10 flex items-center justify-center min-h-screen px-4 py-24 sm:px-6 sm:py-28">
+          <div className="w-full max-w-[980px] text-center md:-mt-20">
             {/* Heading */}
-            <h1 className="font-medium tracking-[-0.065em] text-black leading-[0.97] text-[34px] sm:text-[50px] md:text-[64px]">
+            <h1 className="font-medium tracking-[-0.065em] text-black leading-[1.05] text-[30px] sm:text-[40px] md:text-[48px] lg:text-[64px] md:leading-[0.97]">
               Building AI Systems
               <br />
               Powered By
-              <span className="inline-flex items-center justify-center gap-3 mt-2 ml-3">
+              <span className="inline-flex items-center justify-center gap-2 sm:gap-3 mt-2 ml-0 sm:ml-3">
                 {/* Logo */}
-                <span className="relative flex items-center justify-center w-[34px] h-[34px] md:w-[50px] md:h-[50px]">
+                <span className="relative flex items-center justify-center w-[30px] h-[30px] sm:w-[36px] sm:h-[36px] lg:w-[50px] lg:h-[50px]">
                   <Image
                     key={currentPlatform.logo}
                     src={currentPlatform.logo}
@@ -114,7 +114,7 @@ export default function HeroSection() {
                 </span>
 
                 {/* Text */}
-                <span className="inline-block text-left min-w-[200px] md:min-w-[270px]">
+                <span className="inline-block text-left min-w-[150px] sm:min-w-[200px] lg:min-w-[270px]">
                   {displayText}
                   <span className="animate-pulse font-light">|</span>
                 </span>
@@ -122,13 +122,13 @@ export default function HeroSection() {
             </h1>
 
             {/* Sub Heading */}
-            <p className="max-w-[600px] mx-auto mt-7 text-[15px] md:text-[16px] leading-[1.75] text-black/50">
+            <p className="max-w-[600px] mx-auto mt-6 md:mt-7 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.75] text-black/50">
               We build AI-powered systems for business operations, sales, and
               lead generation using advanced AI models and modern technology.
             </p>
 
             {/* CTA */}
-            <div className="max-w-[600px] mx-auto mt-10">
+            <div className="max-w-[600px] mx-auto mt-8 md:mt-10">
               <form
                 onSubmit={handleStartProject}
                 className="flex flex-col md:flex-row items-center gap-3 md:gap-0 bg-white border border-gray-300 rounded-xl p-1"

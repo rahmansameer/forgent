@@ -6,7 +6,7 @@ interface FormCardProps {
 
 export default function FormCard({ children }: FormCardProps) {
   return (
-    <div className="bg-white border border-[#DBDBDB] rounded-2xl p-8 sm:p-10">
+    <div className="bg-white border border-[#DBDBDB] rounded-2xl p-5 sm:p-8 lg:p-10">
       {children}
     </div>
   );

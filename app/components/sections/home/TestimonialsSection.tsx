@@ -19,7 +19,6 @@ const testimonialsRow1: Testimonial[] = [
     name: "Michael Carter",
     role: "Founder, ScaleFlow",
     text: "Working with forgent made our day-to-day operations much easier. They built a system that fit our workflow perfectly, and we've already noticed a big improvement in how efficiently our team works.",
-    image: "/testimonial-profile1.png",
   },
   {
     id: "r1-2",
@@ -89,7 +88,7 @@ function Avatar({ src, alt }: { src?: string; alt: string }) {
 function TestimonialCard({ item }: { item: Testimonial }) {
   return (
     <div
-      className="flex w-[360px] shrink-0 flex-col gap-4 rounded-2xl border bg-[#F7F8F9] hover:cursor-pointer p-6"
+      className="flex w-[calc(100vw-40px)] max-w-[360px] shrink-0 flex-col gap-4 rounded-2xl border bg-[#F7F8F9] hover:cursor-pointer p-5 sm:p-6"
       style={{ borderColor: "#dddddd" }}
     >
       <div className="flex items-center gap-3">
@@ -103,7 +102,9 @@ function TestimonialCard({ item }: { item: Testimonial }) {
           </span>
         </div>
       </div>
-      <p className="text-[16px] leading-relaxed text-[#333333]">{item.text}</p>
+      <p className="text-[14px] sm:text-[15px] leading-relaxed text-[#333333]">
+        {item.text}
+      </p>
     </div>
   );
 }
@@ -137,18 +138,21 @@ function MarqueeRow({
 
 export default function Testimonials() {
   return (
-    <section className="w-full py-20" style={{ backgroundColor: "#F1F2F3" }}>
-      <div className="mx-auto max-w-[980px] text-center">
-        <h2 className="text-[30px] md:text-[38px] leading-[1.1] font-semibold text-black">
+    <section
+      className="w-full py-16 md:py-20"
+      style={{ backgroundColor: "#F1F2F3" }}
+    >
+      <div className="mx-auto max-w-[980px] px-4 text-center">
+        <h2 className="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[38px] leading-[1.1] font-semibold text-black">
           Trusted by Growing Businesses
         </h2>
 
-        <p className="mt-4 text-[16px] leading-[1.7] text-black/60">
-          Read what our clients say about the results we've delivered.
+        <p className="mt-4 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.7] text-black/60">
+          Read what our clients say about the results we&apos;ve delivered.
         </p>
       </div>
 
-      <div className="flex flex-col gap-6 mt-20">
+      <div className="flex flex-col gap-6 mt-12 md:mt-20">
         <MarqueeRow items={testimonialsRow1} direction="left" />
         <MarqueeRow items={testimonialsRow2} direction="right" />
       </div>

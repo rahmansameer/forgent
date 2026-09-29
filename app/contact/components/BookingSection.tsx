@@ -135,7 +135,6 @@ export default function BookingSection({
     }
 
     const remaining = 42 - days.length;
-    const nextMonth = viewMonth === 11 ? 0 : viewMonth + 1;
     const nextYear = viewMonth === 11 ? viewYear + 1 : viewYear;
     for (let d = 1; d <= remaining; d++) {
       days.push({ day: d, month: 1, year: nextYear });
@@ -159,7 +158,7 @@ export default function BookingSection({
     } else {
       setViewMonth((m) => m - 1);
     }
-  }, [viewMonth]);
+  }, [viewMonth, setViewYear, setViewMonth]);
 
   const goToNextMonth = useCallback(() => {
     if (viewMonth === 11) {
@@ -168,7 +167,7 @@ export default function BookingSection({
     } else {
       setViewMonth((m) => m + 1);
     }
-  }, [viewMonth]);
+  }, [viewMonth, setViewYear, setViewMonth]);
 
   const handleDateClick = useCallback(
     (calDay: CalendarDay) => {

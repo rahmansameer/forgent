@@ -6,7 +6,7 @@ interface StepHeaderProps {
 export default function StepHeader({ title, subtitle }: StepHeaderProps) {
   return (
     <div className="mb-8">
-      <h1 className="text-[28px] font-semibold text-[#111827] leading-[36px]">
+      <h1 className="text-[24px] sm:text-[28px] font-semibold text-[#111827] leading-[32px] sm:leading-[36px]">
         {title}
       </h1>
       {subtitle && (

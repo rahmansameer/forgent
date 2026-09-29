@@ -58,19 +58,19 @@ const pricingPlans = [
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="bg-[#f3f3f3] py-24 md:py-28">
+    <section id="pricing" className="bg-[#f3f3f3] py-16 md:py-24 lg:py-28">
       <Container>
         <div className="mx-auto max-w-[980px] text-center">
-          <h2 className="text-[30px] md:text-[38px] leading-[1.1] font-semibold text-black">
+          <h2 className="text-[26px] sm:text-[30px] md:text-[34px] lg:text-[38px] leading-[1.1] font-semibold text-black">
             Flexible pricing for every stage
           </h2>
 
-          <p className="mt-4 text-[16px] leading-[1.7] text-black/60">
+          <p className="mt-4 text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.7] text-black/60">
             Everything you need to grow faster with AI and automation.
           </p>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-8 xl:grid-cols-3">
+        <div className="mt-12 md:mt-16 lg:mt-20 grid grid-cols-1 gap-6 md:gap-8 xl:grid-cols-3">
           {pricingPlans.map((plan, index) => (
             <PricingCard key={index} plan={plan} />
           ))}
@@ -95,7 +95,7 @@ function PricingCard({ plan }: PricingCardProps) {
   return (
     <div
       className={clsx(
-        "relative rounded-2xl border p-8",
+        "relative rounded-2xl border p-6 sm:p-8",
         plan.highlighted
           ? "border-black bg-black text-white shadow-2xl"
           : "border-[#dddddd] bg-white text-black",
@@ -104,7 +104,7 @@ function PricingCard({ plan }: PricingCardProps) {
       <div className="flex items-center gap-3">
         <h3
           className={clsx(
-            "text-[32px]",
+            "text-[26px] sm:text-[32px]",
             plan.highlighted ? "text-white" : "text-black",
           )}
         >
@@ -128,7 +128,7 @@ function PricingCard({ plan }: PricingCardProps) {
         {plan.description}
       </p>
 
-      <div className="mt-12">
+      <div className="mt-8 sm:mt-12">
         <div className="text-[26px] leading-none font-medium">{plan.price}</div>
       </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState, useCallback, useEffect } from "react";
+import { Suspense, useState, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import type { FormData, FormErrors, Step } from "./types";
 import { validateStep, hasErrors } from "./utils";
@@ -42,20 +42,18 @@ function ContactForm() {
   const searchParams = useSearchParams();
   const emailFromUrl = searchParams.get("email") || "";
 
+  return <ContactFormFields key={emailFromUrl} emailFromUrl={emailFromUrl} />;
+}
+
+function ContactFormFields({ emailFromUrl }: { emailFromUrl: string }) {
   const [step, setStep] = useState<Step>(1);
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<FormData>(() => ({
     ...INITIAL_FORM_DATA,
     email: emailFromUrl,
-  });
+  }));
   const [errors, setErrors] = useState<FormErrors>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-
-  useEffect(() => {
-    if (emailFromUrl) {
-      setFormData((prev) => ({ ...prev, email: emailFromUrl }));
-    }
-  }, [emailFromUrl]);
 
   const updateField = useCallback(
     <K extends keyof FormData>(field: K, value: FormData[K]) => {
@@ -131,13 +129,6 @@ function ContactForm() {
       setSubmitting(false);
     }
   }, [formData]);
-
-  const handleReset = useCallback(() => {
-    setStep(1);
-    setFormData(INITIAL_FORM_DATA);
-    setErrors({});
-    setSubmitted(false);
-  }, []);
 
   if (submitted) {
     return (
