@@ -4,9 +4,9 @@ import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 export const metadata: Metadata = {
-  title: "Forgent | AI-Powered Business Systems",
+  title: "Forgent Systems | AI-Powered Business Systems",
   description:
-    "Forgent help businesses automate sales, customer support, reporting, and operations with AI systems.",
+    "Forgent Systems help businesses automate sales, customer support, reporting, and operations with AI systems.",
 
   icons: {
     icon: "/favicon.ico",

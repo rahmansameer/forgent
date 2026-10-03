@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return {
-    title: `${page.title} – Forgent`,
+    title: `${page.title} – Forgent Systems`,
     description: page.description,
   };
 }

@@ -47,7 +47,7 @@ function HeaderContent({ isHomePage }: { isHomePage: boolean }) {
             <Link href="/" className="w-fit" onClick={() => setOpen(false)}>
               <Image
                 src="/nav-logo.png"
-                alt="Forgent"
+                alt="Forgent Systems"
                 width={160}
                 height={40}
                 className="h-8 w-auto"

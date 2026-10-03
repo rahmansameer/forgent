@@ -18,7 +18,7 @@ const testimonialsRow1: Testimonial[] = [
     id: "r1-1",
     name: "Michael Carter",
     role: "Founder, ScaleFlow",
-    text: "Working with forgent made our day-to-day operations much easier. They built a system that fit our workflow perfectly, and we've already noticed a big improvement in how efficiently our team works.",
+    text: "Working with Forgent Systems made our day-to-day operations much easier. They built a system that fit our workflow perfectly, and we've already noticed a big improvement in how efficiently our team works.",
   },
   {
     id: "r1-2",
